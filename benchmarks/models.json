@@ -1,0 +1,13 @@
+[
+  { "id": "halcyon-2-ultra", "name": "Halcyon-2 Ultra", "lab": "Northwind Labs", "kind": "model" },
+  { "id": "halcyon-2-mini", "name": "Halcyon-2 Mini", "lab": "Northwind Labs", "kind": "model" },
+  { "id": "meridian-4", "name": "Meridian 4", "lab": "Parallax AI", "kind": "model" },
+  { "id": "meridian-4-flash", "name": "Meridian 4 Flash", "lab": "Parallax AI", "kind": "model" },
+  { "id": "orca-70b", "name": "Orca 70B", "lab": "OpenReef", "kind": "model" },
+  { "id": "quill-r1", "name": "Quill R1", "lab": "Quill Research", "kind": "model" },
+  { "id": "tessera-large", "name": "Tessera Large", "lab": "Tessera", "kind": "model" },
+  { "id": "vantage-x", "name": "Vantage X", "lab": "Vantage Systems", "kind": "model" },
+  { "id": "kestrel-1-5", "name": "Kestrel 1.5", "lab": "Kestrel AI", "kind": "model" },
+  { "id": "random", "name": "Random Agent", "lab": "Baseline", "kind": "baseline" },
+  { "id": "scripted-l1", "name": "Scripted Engine L1", "lab": "Baseline", "kind": "baseline" }
+]

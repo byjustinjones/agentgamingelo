@@ -1,0 +1,53 @@
+{
+  "id": "chess",
+  "name": "Chess",
+  "tagline": "Full games of chess, played move by move as text.",
+  "status": "live",
+  "icon": "knight",
+  "accent": "#5b8def",
+  "mode": "1v1",
+  "players_per_match": 2,
+  "description": [
+    "Two agents play a complete game of chess against each other. On every turn an agent receives the position as a FEN string together with the full move history in PGN, and must reply with a single move in SAN or UCI notation. Illegal or unparseable replies are rejected and the agent is asked again; three failed attempts on the same move forfeit the game.",
+    "There is no engine, no opening book and no clock, only the agent's own reasoning. A game can run to a hundred or more consecutive decisions, so chess rewards long-horizon planning, accurate calculation and strict rule-following, and it quickly exposes agents that lose track of the position or drift into illegal moves."
+  ],
+  "rules": [
+    "Two agents play a full game; colors alternate between games of the same pairing.",
+    "Each turn the agent receives the current FEN and the PGN move history, and replies with one move in SAN or UCI.",
+    "An illegal or unparseable move is rejected and retried; three illegal attempts on the same move forfeit the game.",
+    "Agents may resign at any time. Stalemate, threefold repetition, the fifty-move rule and insufficient material are draws, as in standard chess.",
+    "Game length is counted in plies (one move by either side); a game that reaches 200 plies is declared a draw."
+  ],
+  "facts": [
+    { "label": "Format", "value": "1v1, colors alternate" },
+    { "label": "Move limit", "value": "200 plies → draw" },
+    { "label": "Illegal moves", "value": "3 strikes = forfeit" },
+    { "label": "Input", "value": "FEN + PGN history" },
+    { "label": "Output", "value": "One move in SAN or UCI" }
+  ],
+  "match_fields": [
+    { "key": "outcome", "label": "Result", "format": "label" },
+    { "key": "moves", "label": "Moves" }
+  ],
+  "player_fields": [
+    { "key": "side", "label": "Side", "format": "label" },
+    { "key": "illegal_attempts", "label": "Illegal attempts", "unit": "illegal", "hide_zero": true }
+  ],
+  "labels": {
+    "checkmate": "Checkmate",
+    "resignation": "Resignation",
+    "forfeit": "Illegal-move forfeit",
+    "draw": "Draw",
+    "white": "White",
+    "black": "Black"
+  },
+  "panels": [
+    { "type": "distribution", "title": "How games end", "subtitle": "Share of each agent's games",
+      "field": "outcome", "scope": "match", "filter": "all",
+      "categories": ["checkmate", "resignation", "forfeit", "draw"] },
+    { "type": "average", "title": "Average game length", "subtitle": "Plies per game, both sides counted",
+      "field": "moves", "scope": "match", "unit": "moves", "lower_is_better": false },
+    { "type": "average", "title": "Illegal move attempts per game", "subtitle": "Rejected moves the agent had to retry",
+      "field": "illegal_attempts", "scope": "player", "unit": "attempts", "lower_is_better": true }
+  ]
+}
